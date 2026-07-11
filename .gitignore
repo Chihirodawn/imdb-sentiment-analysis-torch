@@ -1,0 +1,14 @@
+# Large source data and embeddings
+corpus/
+glove/
+pickle/
+checkpoint/
+
+# Runtime outputs
+logs/
+result/
+__pycache__/
+*.pyc
+
+# Hugging Face / TensorBoard runtime directories
+runs/
