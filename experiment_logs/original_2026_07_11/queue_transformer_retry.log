@@ -1,0 +1,5 @@
+[2026-07-11T16:03:00+08:00] queue gpu=1 waiting for pid=5710
+[2026-07-11T16:03:00+08:00] waiting for pickle/imdb_glove.pickle3
+[2026-07-11T16:03:00+08:00] starting imdb_transformer.py on gpu 1
+[2026-07-11T16:03:19+08:00] finished imdb_transformer.py status=1
+[2026-07-11T16:03:19+08:00] queue gpu=1 complete

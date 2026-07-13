@@ -1,0 +1,7 @@
+2026-07-13T15:04:52+08:00	imdb_bert_scratch.py	RESTARTED
+2026-07-13T15:19:47+08:00	imdb_bert_scratch.py	SUCCEEDED
+2026-07-13T15:19:47+08:00	imdb_bert_trainer.py	RESTARTED
+2026-07-13T15:32:32+08:00	imdb_bert_trainer.py	SUCCEEDED
+2026-07-13T15:32:32+08:00	imdb_distilbert_native.py	RESTARTED
+2026-07-13T15:39:22+08:00	imdb_distilbert_native.py	SUCCEEDED
+2026-07-13T15:39:22+08:00	ALL_REMAINING	SUCCEEDED
