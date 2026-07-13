@@ -1,0 +1,5 @@
+[2026-07-11T16:01:06+08:00] queue gpu=1 waiting for pid=5496
+[2026-07-11T16:01:36+08:00] waiting for pickle/imdb_glove.pickle3
+[2026-07-11T16:01:36+08:00] starting imdb_capsule_lstm.py on gpu 1
+[2026-07-11T16:02:18+08:00] finished imdb_capsule_lstm.py status=0
+[2026-07-11T16:02:18+08:00] queue gpu=1 complete

@@ -1,0 +1,4 @@
+Rerun complete
+25001 result/cnn.csv
+25001 result/lstm.csv
+25001 result/gru.csv

@@ -1,0 +1,9 @@
+2026-07-11 15:43:06,771: INFO: running imdb_process.py
+/root/autodl-tmp/imdb_sentiment_analysis_torch/imdb_process.py:33: MarkupResemblesLocatorWarning: The input looks more like a filename than markup. You may want to open this file and pass the filehandle into Beautiful Soup.
+  review_text = BeautifulSoup(review, "lxml").get_text()
+2026-07-11 15:43:16,799: INFO: loading projection weights from glove/glove.840B.300d.txt
+2026-07-11 15:43:46,269: WARNING: duplicate word '����������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������' in word2vec file, ignoring all but first
+2026-07-11 15:50:01,278: INFO: KeyedVectors lifecycle event {'msg': 'loaded (2196018, 300) matrix of type float32 from glove/glove.840B.300d.txt', 'binary': False, 'encoding': 'utf-8', 'datetime': '2026-07-11T15:50:01.275363', 'gensim': '4.4.0', 'python': '3.12.3 | packaged by Anaconda, Inc. | (main, May  6 2024, 19:46:43) [GCC 11.2.0]', 'platform': 'Linux-5.15.0-179-generic-x86_64-with-glibc2.35', 'event': 'load_word2vec_format'}
+/root/autodl-tmp/imdb_sentiment_analysis_torch/imdb_process.py:122: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:203.)
+  weight[index, :] = torch.from_numpy(wvmodel.get_vector(
+data dumped!

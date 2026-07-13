@@ -1,0 +1,9 @@
+[2026-07-11T15:45:02+08:00] queue gpu=0 waiting for pid=3147
+[2026-07-11T15:48:02+08:00] waiting for pickle/imdb_glove.pickle3
+[2026-07-11T15:50:32+08:00] starting imdb_cnn.py on gpu 0
+[2026-07-11T15:50:45+08:00] finished imdb_cnn.py status=0
+[2026-07-11T15:50:45+08:00] starting imdb_gru.py on gpu 0
+[2026-07-11T15:51:13+08:00] finished imdb_gru.py status=0
+[2026-07-11T15:51:13+08:00] starting imdb_cnnlstm.py on gpu 0
+[2026-07-11T15:51:31+08:00] finished imdb_cnnlstm.py status=0
+[2026-07-11T15:51:31+08:00] queue gpu=0 complete
