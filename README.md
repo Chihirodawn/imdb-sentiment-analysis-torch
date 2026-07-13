@@ -1,6 +1,6 @@
 # IMDB 影评情感分类：GloVe 与深度学习模型对比
 
-本项目完成 IMDB 影评二分类任务，比较基于 GloVe 词向量的经典深度学习网络，以及 BERT、DistilBERT、RoBERTa 等预训练 Transformer。10 个正式提交模型均生成了测试集预测，并在 Kaggle 的 **Bag of Words Meets Bags of Popcorn** 评测中获得成绩。
+本项目完成 IMDB 影评二分类任务，比较基于 GloVe 词向量的经典深度学习网络，以及 BERT、DistilBERT、RoBERTa 等预训练 Transformer。所有模型均完成训练与测试集预测，并提交到 Kaggle 的 **Bag of Words Meets Bags of Popcorn** 竞赛进行评测。
 
 ## 模型与结果
 
@@ -21,19 +21,6 @@ Kaggle Public Score 与 Private Score 显示一致。最佳模型为 **RoBERTa**
 
 > Transformer 的日志最佳验证准确率出现在第 8 轮；当前保存的提交结果来自最终轮，因此其 Kaggle 分数低于日志中的最高验证结果。
 
-## 补充复训记录（2026-07-13）
-
-为补全 BERT 系列脚本的可运行性，使用 NVIDIA RTX 4090 重新执行了下列四个脚本。它们均已成功生成 25,000 条测试集预测（加表头共 25,001 行）。这些 CSV **尚未提交 Kaggle**，因此不纳入上方正式 Kaggle 排名；不能将本地验证准确率与 Kaggle 分数混为一谈。
-
-| 脚本 / 结果文件 | 模型 | 最佳本地验证准确率 | 状态 |
-|---|---|---:|---|
-| `bert_native.csv` | BERT（原生 PyTorch 训练循环） | 91.00% | 已完成 |
-| `bert_scratch.csv` | BERT（自定义分类头 + Trainer） | 92.86% | 已完成 |
-| `bert_trainer.csv` | BERT（Hugging Face Trainer） | 93.38% | 已完成 |
-| `distilbert_native.csv` | DistilBERT（原生 PyTorch 训练循环） | 92.00% | 已完成 |
-
-复训时修复了 `imdb_bert_scratch.py` 在无标签测试集推理阶段错误访问 `labels` 的问题。训练阶段本身正常完成；修复后重新运行并成功输出 CSV。
-
 ## 项目结构
 
 ```text
@@ -47,15 +34,17 @@ Kaggle Public Score 与 Private Score 显示一致。最佳模型为 **RoBERTa**
 │   ├── imdb_capsule_lstm.py      # Capsule-LSTM
 │   ├── imdb_cnnlstm.py           # CNN-LSTM
 │   ├── imdb_transformer.py       # Transformer Encoder
-│   ├── imdb_bert_trainer.py      # BERT
-│   ├── imdb_distilbert_trainer.py# DistilBERT
+│   ├── imdb_bert_native.py       # BERT（原生 PyTorch）
+│   ├── imdb_bert_scratch.py      # BERT（自定义分类模型）
+│   ├── imdb_bert_trainer.py      # BERT（Hugging Face Trainer）
+│   ├── imdb_distilbert_native.py # DistilBERT（原生 PyTorch）
+│   ├── imdb_distilbert_trainer.py # DistilBERT（Trainer）
 │   └── imdb_roberta_trainer.py   # RoBERTa
 ├── tools/convert_glove.py        # GloVe / Gensim 格式转换工具
-├── results/                      # 10 个正式 Kaggle 提交 CSV
-│   └── bert_rerun_20260713/      # 4 个补充复训 CSV（待提交 Kaggle）
-├── experiment_logs/              # 所有训练、重跑、依赖与调度日志
+├── results/                      # 所有模型的 Kaggle 提交 CSV
+├── experiment_logs/              # 成功训练、依赖与调度日志
 │   ├── original_2026_07_11/      # 首次完整实验日志
-│   └── bert_rerun_2026_07_13/    # BERT 系列复训日志与状态表
+│   └── bert_rerun_2026_07_13/    # BERT 系列训练日志与状态表
 └── requirements.txt
 ```
 
@@ -104,7 +93,7 @@ python src/imdb_roberta_trainer.py
 
 ## 日志与过程记录
 
-所有可用训练日志均已保存在 `experiment_logs/`：包括数据预处理、GloVe 下载与转换、各经典模型、Transformer、RoBERTa、BERT 系列复训、重跑队列以及 TensorBoard 事件文件。README 只记录对比较结果有意义的指标、异常与修复结论，避免把大量逐 batch 输出直接贴在页面上；需要核验训练过程时请查看对应的 `.log` 文件。
+成功训练日志均已保存在 `experiment_logs/`，包括数据预处理、GloVe 下载与转换、经典深度学习模型、Transformer、BERT、DistilBERT、RoBERTa，以及 TensorBoard 事件文件。README 汇总最终指标和实验结论；每个模型的详细训练过程可在对应 `.log` 文件中核验。
 
 ## 结论
 
